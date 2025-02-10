@@ -34,4 +34,15 @@ class CalculatorController < ApplicationController
     @payment = num/denom
     render({ :template => "view_layouts/payment_result"})
   end
+  def random
+    @min = params["min"]&.to_f
+    @max = params["max"]&.to_f
+    render({ :template => "view_layouts/random"})
+  end
+  def random_result
+    @min = params["min"]&.to_f
+    @max = params["max"]&.to_f
+    @result = rand(@min..@max)
+    render({ :template => "view_layouts/random_result"})
+  end
 end
